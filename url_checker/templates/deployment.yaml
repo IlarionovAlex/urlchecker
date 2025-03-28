@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: external-url-checker
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: external-url-checker
+  template:
+    metadata:
+      labels:
+        app: external-url-checker
+    spec:
+      containers:
+        - name: external-url-checker
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 8000
+          resources: {{ .Values.resources | toYaml | nindent 12 }}

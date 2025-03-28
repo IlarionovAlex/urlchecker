@@ -1,0 +1,5 @@
+---
+apiVersion: v2
+name: external-url-checker
+description: A python service to check the status of external URLs and expose the metrics to Prometheus.
+version: 0.1.0

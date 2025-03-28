@@ -1,0 +1,17 @@
+---
+replicaCount: 1
+
+image:
+  repository: ghcr.io/your-github-username/external-url-checker
+  tag: latest
+  pullPolicy: Always
+
+service:
+  name: external-url-checker
+  type: ClusterIP
+  port: 8000
+
+resources: {}
+
+imagePullSecrets:
+  - name: ghcr-secret
